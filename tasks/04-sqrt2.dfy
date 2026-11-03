@@ -6,12 +6,12 @@ method Sqrt2(N: nat) returns (r: nat)
   ensures r * r <= N < (r + 1) * (r + 1)
 {
   r := 0;
-  var s := 42; // TODO: начальное значение
+  var s := 1;
   while s <= N
-    // TODO: недостающий инвариант
+    invariant r*r <= N
     invariant s == (r + 1) * (r + 1)
   {
-    s := 42; // TODO: вычислите по старым s и r
+    s := s + 2*r+3;
     r := r + 1;
   }
 }

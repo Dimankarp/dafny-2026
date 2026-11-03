@@ -6,8 +6,8 @@ method UpWhileNotEqual(N: int) returns (i: int)
 {
   i := 0;
   while i != N
-    // TODO: инвариант
-    // TODO: мера завершения
+    invariant i <= N
+    decreases N - i
   {
     i := i + 1;
   }

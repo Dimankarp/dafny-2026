@@ -9,5 +9,10 @@ method Sqrt(n: nat) returns (result: nat)
   ensures n == 4 ==> result == 2
   ensures result * result <= n < (result + 1) * (result + 1)
 {
-  result := 0; // TODO: code
+  result := 0;
+  while (result + 1) * (result + 1) <= n
+    invariant result * result <= n
+  {
+    result := result + 1;
+  }
 }

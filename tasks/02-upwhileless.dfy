@@ -6,7 +6,7 @@ method UpWhileLess(N: int) returns (i: int)
 {
   i := 0;
   while i < N
-    // TODO: инвариант
+    invariant i <= N
   {
     i := i + 1;
   }

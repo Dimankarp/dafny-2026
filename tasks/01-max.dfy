@@ -1,7 +1,7 @@
 // Задача 1: Max. 1 балл.
 // Проверяйте этот файл отдельно; полное условие приведено в README.md.
 function Max(a: int, b: int): int
-  ensures false // TODO: замените требуемыми постусловиями
+  ensures (Max(a, b) >= a && Max(a, b) >= b) && (Max(a, b) == a || Max(a, b) == b)
 {
-  0 // TODO: реализуйте функцию
+ if a >= b then a else b
 }

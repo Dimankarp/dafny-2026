@@ -7,7 +7,7 @@ method EgyptianMultiplication(x: nat, y: nat) returns (res: nat)
   var b: nat := y;
   res := 0;
   while a > 0
-    // TODO: инвариант
+    invariant res+a*b == x * y
   {
     assert a == 2 * (a / 2) + a % 2;
     if a % 2 == 1 {

@@ -8,5 +8,19 @@ function fib(n: nat): nat
 method Fib(n: nat) returns (result: nat)
   ensures result == fib(n)
 {
-  result := 0; // TODO: замените итеративным алгоритмом
+  var i:= 0;
+  var prev := 1;
+  var cur := 1;
+  while i < n
+    invariant i <= n
+    invariant prev == fib(i)
+    invariant cur == fib(i + 1)
+    decreases n - i
+  {
+    var temp := prev;
+    prev := cur;
+    cur := temp + cur;
+    i := i + 1;
+  }
+  result := prev;
 }

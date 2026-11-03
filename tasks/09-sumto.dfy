@@ -6,5 +6,14 @@
 method SumTo(n: nat) returns (result: nat)
   ensures 2 * result == n * (n + 1)
 {
-  result := 0; // TODO: итеративный алгоритм, инвариант и завершение
+  result := 0;
+  var i := 1;
+  while i <= n
+    invariant i <= n + 1
+    invariant 2 * result == (i - 1) * i
+    decreases n - i
+    {
+      result := result + i;
+      i := i + 1;
+    }
 }
